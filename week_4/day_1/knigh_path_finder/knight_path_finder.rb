@@ -41,8 +41,14 @@ class KnightPathFinder
     valid_moves
   end
 
-end
+  def find_path(end_pos)
+    end_node = @root_node.dfs(end_pos)
+    trace_path_back(end_node).map(&:value)
+  end
 
-# a = KnightPathFinder.new([4,3])
-# p KnightPathFinder.valid_moves([0,0])
-# p a.new_move_positions([3,5])
+  def trace_path_back(end_node)
+    return [end_node] if end_node == @root_node
+    trace_path_back(end_node.parent) << end_node
+  end
+
+end
