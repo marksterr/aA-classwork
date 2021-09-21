@@ -7,5 +7,11 @@ class Employee
     @title = title
     @salary = salary
     @boss = boss
+    self.boss.employees << self unless boss.nil?
   end
+
+  def bonus(multiplier)
+    self.salary * multiplier
+  end
+
 end
