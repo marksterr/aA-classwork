@@ -47,3 +47,5 @@ def stock_picker(arr)
   end
   return result
 end
+
+

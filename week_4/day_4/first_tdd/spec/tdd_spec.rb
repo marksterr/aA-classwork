@@ -45,5 +45,5 @@ describe "stock_picker" do
   it "should return pair of days when it is most profitable to buy and sell" do
     expect(stock_picker(arr1)).to eq([1, 7])
   end
-
 end
+
