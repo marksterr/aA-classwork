@@ -38,3 +38,12 @@ describe "my_transpose" do
     expect(my_transpose(arr1)).to eq(arr2)
   end
 end
+
+describe "stock_picker" do
+  arr1 = [132, 76, 210, 213, 173, 92, 156, 255, 183]
+
+  it "should return pair of days when it is most profitable to buy and sell" do
+    expect(stock_picker(arr1)).to eq([1, 7])
+  end
+
+end
