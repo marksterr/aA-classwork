@@ -16,7 +16,17 @@ describe "Towers" do
     end
   end
 
-  
+  describe "#get_move" do 
+    it "should take in two arguments, a first pile and second pile, then remove top disc from first pile and place into second pile" do
+      tower.get_move(1, 3)
+      expect(tower.arr1.length).to eq(5)
+      expect(tower.arr3.length).to eq(1)
+    end
+  end
+
+  describe "#won?" do
+    it "should check if "
+  end
 
 end
 
