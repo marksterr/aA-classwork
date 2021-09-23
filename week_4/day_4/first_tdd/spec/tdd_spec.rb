@@ -25,3 +25,16 @@ describe "Array" do
   end
 
 end
+
+describe "my_transpose" do
+  arr1 = [[0, 1, 2],
+          [3, 4, 5],
+          [6, 7, 8]]
+
+  arr2 = [[0, 3, 6],
+          [1, 4, 7],
+          [2, 5, 8]]
+  it "should return a new 2d matrix with rows and columns swapped" do
+    expect(my_transpose(arr1)).to eq(arr2)
+  end
+end

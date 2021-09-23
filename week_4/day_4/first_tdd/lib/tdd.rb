@@ -20,3 +20,15 @@ class Array
   end
 
 end
+
+
+def my_transpose(arr)
+  transposed = Array.new(arr.length) { Array.new(arr.length, nil) }
+  arr.each.with_index do |row, row_i|
+    row.each.with_index do |item, col_i|
+      transposed[col_i][row_i] = item
+    end
+  end
+  transposed
+end
+
