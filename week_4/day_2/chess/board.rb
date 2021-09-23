@@ -16,10 +16,6 @@ class Board
     set_pieces
   end
 
-  def move_piece(start_pos, end_pos)
-
-  end
-
   def set_pieces
     self.grid[0][0] = Rook.new("w", [0,0])
     self.grid[0][7] = Rook.new("w", [0,7])
@@ -28,7 +24,7 @@ class Board
     self.grid[0][2] = Bishop.new("w", [0,2])
     self.grid[0][5] = Bishop.new("w", [0,5])
     self.grid[0][3] = Queen.new("w", [0,3])
-    self.grid[0][4] = King.new("w", [0,5])
+    self.grid[0][4] = King.new("w", [0,4])
     self.grid[7][0] = Rook.new("b", [7,0])
     self.grid[7][7] = Rook.new("b", [7,7])
     self.grid[7][1] = Knight.new("b", [7,1])
@@ -51,6 +47,11 @@ class Board
   def []=(pos, val)
     row, col = pos
     self.grid[row][col] = val
+  end
+
+  def remove_piece(pos)
+    row, col = pos
+    self.grid[row][col] = nil
   end
 
 end

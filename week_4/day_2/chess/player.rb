@@ -1,10 +1,11 @@
 class Player
 
-  attr_accessor :color, :display
+  attr_accessor :color
 
-  def initialize(color, display)
+  def initialize(color, name)
     @color = color
-    @display = display
+    @name = name
+    # @display = display
   end
 
   def make_move
