@@ -1,11 +1,12 @@
 class Towers
 
-  attr_accessor :arr1, :arr2, :arr3
+  attr_accessor :arr1, :arr2, :arr3, :num_discs
 
   def initialize(n)
     @arr1 = (1..n).to_a.reverse!
     @arr2 = []
     @arr3 = []
+    @num_discs = n
   end
 
   def get_move(first, second)
@@ -26,7 +27,15 @@ class Towers
     when 3
       @arr3 << disc
     end
+  end
 
+  def won?
+    if @arr2 == (1..@num_discs).to_a.reverse || @arr3 == (1..@num_discs).to_a.reverse
+      puts "winner"
+      return true
+    else 
+      return false
+    end
   end
 
 end

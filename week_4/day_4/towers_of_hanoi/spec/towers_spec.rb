@@ -25,7 +25,16 @@ describe "Towers" do
   end
 
   describe "#won?" do
-    it "should check if "
+    it "should check if any non-start array has correct result" do
+      tower.arr1 = []
+      tower.arr3 = [6,5,4,3,2,1]
+      expect(tower.won?).to be(true)
+    end
+  end
+
+  describe "#play" do
+    it "should loop until game is won and call get_move" do
+    end
   end
 
 end
