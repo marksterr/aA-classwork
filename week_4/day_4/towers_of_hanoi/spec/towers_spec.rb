@@ -32,10 +32,12 @@ describe "Towers" do
     end
   end
 
-  describe "#play" do
-    it "should loop until game is won and call get_move" do
-    end
-  end
+  # describe "#play" do
+  #   it "should loop until game is won and call #get_move" do
+  #     tower.get_move(1, 3)
+  #     expect(tower).to receive(get_move(1,3))
+  #   end
+  # end
 
 end
 

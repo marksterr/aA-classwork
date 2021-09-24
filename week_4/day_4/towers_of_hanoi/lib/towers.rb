@@ -38,4 +38,24 @@ class Towers
     end
   end
 
+  def play
+    while !self.won?
+      render
+      puts "Enter two towers, separated by a comma (ex: 1,3): "
+      input = gets.chomp.split(",").map(&:to_i)
+      get_move(input[0], input[1])
+    end
+  end
+
+  def render
+    p @arr1
+    puts
+    p @arr2
+    puts
+    p @arr3
+  end
+
 end
+
+game = Towers.new(3)
+game.play
