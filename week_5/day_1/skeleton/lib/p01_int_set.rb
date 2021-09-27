@@ -98,6 +98,10 @@ class ResizingIntSet
   end
 
   def resize!
-    
+    if @count >= @store.length
+      # @count = 0
+      @store = Array.new(@store.length * 2) { Array.new }
+      # @store.length * 2
+    end
   end
 end
