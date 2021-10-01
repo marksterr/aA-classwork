@@ -10,4 +10,7 @@
 #  updated_at    :datetime         not null
 #
 class Course < ApplicationRecord
+
+  
+
 end
