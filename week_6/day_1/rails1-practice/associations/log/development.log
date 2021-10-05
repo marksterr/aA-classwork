@@ -1,0 +1,270 @@
+  [1m[35m (0.1ms)[0m  [1m[35mDROP DATABASE IF EXISTS "rails-1P-associations_development"[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mDROP DATABASE IF EXISTS "rails-1P-associations_test"[0m
+  ↳ bin/rails:9
+  [1m[35m (84.5ms)[0m  [1m[35mCREATE DATABASE "rails-1P-associations_development" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (75.7ms)[0m  [1m[35mCREATE DATABASE "rails-1P-associations_test" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35mSQL (0.3ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  ↳ db/schema.rb:16
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "comments" CASCADE[0m
+  ↳ db/schema.rb:18
+  [1m[35m (13.6ms)[0m  [1m[35mCREATE TABLE "comments" ("id" bigserial primary key, "body" character varying NOT NULL, "video_id" integer NOT NULL, "parent_comment_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "commenter_id" integer)[0m
+  ↳ db/schema.rb:18
+  [1m[35m (4.9ms)[0m  [1m[35mCREATE  INDEX  "index_comments_on_commenter_id" ON "comments"  ("commenter_id")[0m
+  ↳ db/schema.rb:18
+  [1m[35m (5.3ms)[0m  [1m[35mCREATE  INDEX  "index_comments_on_video_id" ON "comments"  ("video_id")[0m
+  ↳ db/schema.rb:18
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "likes" CASCADE[0m
+  ↳ db/schema.rb:29
+  [1m[35m (7.0ms)[0m  [1m[35mCREATE TABLE "likes" ("id" bigserial primary key, "liker_id" integer NOT NULL, "video_id" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:29
+  [1m[35m (10.8ms)[0m  [1m[35mCREATE  INDEX  "index_likes_on_liker_id" ON "likes"  ("liker_id")[0m
+  ↳ db/schema.rb:29
+  [1m[35m (4.6ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_likes_on_video_id_and_liker_id" ON "likes"  ("video_id", "liker_id")[0m
+  ↳ db/schema.rb:29
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  ↳ db/schema.rb:38
+  [1m[35m (9.7ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "username" character varying NOT NULL, "password" character varying NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:38
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "videos" CASCADE[0m
+  ↳ db/schema.rb:45
+  [1m[35m (9.0ms)[0m  [1m[35mCREATE TABLE "videos" ("id" bigserial primary key, "title" character varying NOT NULL, "description" text NOT NULL, "uploader_id" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:45
+  [1m[35m (4.7ms)[0m  [1m[35mCREATE  INDEX  "index_videos_on_uploader_id" ON "videos"  ("uploader_id")[0m
+  ↳ db/schema.rb:45
+  [1m[35m (9.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ db/schema.rb:13
+  [1m[35m (1.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20200125015338)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (9.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2021-10-03 18:27:40.106057"], ["updated_at", "2021-10-03 18:27:40.106057"]]
+  ↳ db/schema.rb:13
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35mSQL (0.3ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  ↳ db/schema.rb:16
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "comments" CASCADE[0m
+  ↳ db/schema.rb:18
+  [1m[35m (11.1ms)[0m  [1m[35mCREATE TABLE "comments" ("id" bigserial primary key, "body" character varying NOT NULL, "video_id" integer NOT NULL, "parent_comment_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "commenter_id" integer)[0m
+  ↳ db/schema.rb:18
+  [1m[35m (4.7ms)[0m  [1m[35mCREATE  INDEX  "index_comments_on_commenter_id" ON "comments"  ("commenter_id")[0m
+  ↳ db/schema.rb:18
+  [1m[35m (4.8ms)[0m  [1m[35mCREATE  INDEX  "index_comments_on_video_id" ON "comments"  ("video_id")[0m
+  ↳ db/schema.rb:18
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "likes" CASCADE[0m
+  ↳ db/schema.rb:29
+  [1m[35m (5.7ms)[0m  [1m[35mCREATE TABLE "likes" ("id" bigserial primary key, "liker_id" integer NOT NULL, "video_id" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:29
+  [1m[35m (5.0ms)[0m  [1m[35mCREATE  INDEX  "index_likes_on_liker_id" ON "likes"  ("liker_id")[0m
+  ↳ db/schema.rb:29
+  [1m[35m (5.0ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_likes_on_video_id_and_liker_id" ON "likes"  ("video_id", "liker_id")[0m
+  ↳ db/schema.rb:29
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  ↳ db/schema.rb:38
+  [1m[35m (9.3ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "username" character varying NOT NULL, "password" character varying NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:38
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "videos" CASCADE[0m
+  ↳ db/schema.rb:45
+  [1m[35m (9.6ms)[0m  [1m[35mCREATE TABLE "videos" ("id" bigserial primary key, "title" character varying NOT NULL, "description" text NOT NULL, "uploader_id" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:45
+  [1m[35m (4.5ms)[0m  [1m[35mCREATE  INDEX  "index_videos_on_uploader_id" ON "videos"  ("uploader_id")[0m
+  ↳ db/schema.rb:45
+  [1m[35m (8.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ db/schema.rb:13
+  [1m[35m (1.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20200125015338)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (8.8ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2021-10-03 18:27:40.221943"], ["updated_at", "2021-10-03 18:27:40.221943"]]
+  ↳ db/schema.rb:13
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Update (0.3ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "test"], ["updated_at", "2021-10-03 18:27:40.225430"], ["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mUser Destroy (0.5ms)[0m  [1m[31mDELETE FROM "users"[0m
+  ↳ db/seeds.rb:14
+  [1m[36mVideo Destroy (0.3ms)[0m  [1m[31mDELETE FROM "videos"[0m
+  ↳ db/seeds.rb:15
+  [1m[36mComment Destroy (0.4ms)[0m  [1m[31mDELETE FROM "comments"[0m
+  ↳ db/seeds.rb:16
+  [1m[36mLike Destroy (0.4ms)[0m  [1m[31mDELETE FROM "likes"[0m
+  ↳ db/seeds.rb:17
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("id", "username", "password", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["id", 38395], ["username", "cousin_gerald"], ["password", "hesadoctor"], ["created_at", "2021-10-03 18:27:40.274666"], ["updated_at", "2021-10-03 18:27:40.274666"]]
+  ↳ db/seeds.rb:19
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("id", "username", "password", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["id", 5482], ["username", "gillian"], ["password", "ballberie"], ["created_at", "2021-10-03 18:27:40.277242"], ["updated_at", "2021-10-03 18:27:40.277242"]]
+  ↳ db/seeds.rb:25
+  [1m[36mVideo Create (0.6ms)[0m  [1m[32mINSERT INTO "videos" ("id", "title", "description", "uploader_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["id", 85581], ["title", "The Less I Know the Better"], ["description", "Music by Australian band Tame Impala"], ["uploader_id", 38395], ["created_at", "2021-10-03 18:27:40.293230"], ["updated_at", "2021-10-03 18:27:40.293230"]]
+  ↳ db/seeds.rb:31
+  [1m[36mVideo Create (0.3ms)[0m  [1m[32mINSERT INTO "videos" ("id", "title", "description", "uploader_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["id", 19537], ["title", "Ball of Pizza"], ["description", "Eric brings pizza to the dojo"], ["uploader_id", 5482], ["created_at", "2021-10-03 18:27:40.295049"], ["updated_at", "2021-10-03 18:27:40.295049"]]
+  ↳ db/seeds.rb:38
+  [1m[36mComment Create (0.6ms)[0m  [1m[32mINSERT INTO "comments" ("id", "body", "video_id", "created_at", "updated_at", "commenter_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["id", 49480], ["body", "first"], ["video_id", 85581], ["created_at", "2021-10-03 18:27:40.310822"], ["updated_at", "2021-10-03 18:27:40.310822"], ["commenter_id", 5482]]
+  ↳ db/seeds.rb:45
+  [1m[36mComment Create (0.3ms)[0m  [1m[32mINSERT INTO "comments" ("id", "body", "video_id", "parent_comment_id", "created_at", "updated_at", "commenter_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["id", 77074], ["body", "second"], ["video_id", 85581], ["parent_comment_id", 49480], ["created_at", "2021-10-03 18:27:40.313421"], ["updated_at", "2021-10-03 18:27:40.313421"], ["commenter_id", 38395]]
+  ↳ db/seeds.rb:52
+  [1m[36mLike Create (0.4ms)[0m  [1m[32mINSERT INTO "likes" ("id", "liker_id", "video_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["id", 36667], ["liker_id", 5482], ["video_id", 85581], ["created_at", "2021-10-03 18:27:40.327189"], ["updated_at", "2021-10-03 18:27:40.327189"]]
+  ↳ db/seeds.rb:60
+  [1m[36mLike Create (0.2ms)[0m  [1m[32mINSERT INTO "likes" ("id", "liker_id", "video_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["id", 42866], ["liker_id", 38395], ["video_id", 19537], ["created_at", "2021-10-03 18:27:40.328757"], ["updated_at", "2021-10-03 18:27:40.328757"]]
+  ↳ db/seeds.rb:61
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35mSQL (0.2ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  ↳ db/schema.rb:16
+  [1m[35m (9.9ms)[0m  [1m[35mDROP TABLE IF EXISTS "comments" CASCADE[0m
+  ↳ db/schema.rb:18
+  [1m[35m (10.1ms)[0m  [1m[35mCREATE TABLE "comments" ("id" bigserial primary key, "body" character varying NOT NULL, "video_id" integer NOT NULL, "parent_comment_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "commenter_id" integer)[0m
+  ↳ db/schema.rb:18
+  [1m[35m (4.6ms)[0m  [1m[35mCREATE  INDEX  "index_comments_on_commenter_id" ON "comments"  ("commenter_id")[0m
+  ↳ db/schema.rb:18
+  [1m[35m (4.6ms)[0m  [1m[35mCREATE  INDEX  "index_comments_on_video_id" ON "comments"  ("video_id")[0m
+  ↳ db/schema.rb:18
+  [1m[35m (2.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "likes" CASCADE[0m
+  ↳ db/schema.rb:29
+  [1m[35m (6.0ms)[0m  [1m[35mCREATE TABLE "likes" ("id" bigserial primary key, "liker_id" integer NOT NULL, "video_id" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:29
+  [1m[35m (4.6ms)[0m  [1m[35mCREATE  INDEX  "index_likes_on_liker_id" ON "likes"  ("liker_id")[0m
+  ↳ db/schema.rb:29
+  [1m[35m (4.8ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_likes_on_video_id_and_liker_id" ON "likes"  ("video_id", "liker_id")[0m
+  ↳ db/schema.rb:29
+  [1m[35m (2.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  ↳ db/schema.rb:38
+  [1m[35m (13.7ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "username" character varying NOT NULL, "password" character varying NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:38
+  [1m[35m (2.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "videos" CASCADE[0m
+  ↳ db/schema.rb:45
+  [1m[35m (9.6ms)[0m  [1m[35mCREATE TABLE "videos" ("id" bigserial primary key, "title" character varying NOT NULL, "description" text NOT NULL, "uploader_id" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:45
+  [1m[35m (4.7ms)[0m  [1m[35mCREATE  INDEX  "index_videos_on_uploader_id" ON "videos"  ("uploader_id")[0m
+  ↳ db/schema.rb:45
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35mSQL (0.2ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  ↳ db/schema.rb:16
+  [1m[35m (2.9ms)[0m  [1m[35mDROP TABLE IF EXISTS "comments" CASCADE[0m
+  ↳ db/schema.rb:18
+  [1m[35m (10.1ms)[0m  [1m[35mCREATE TABLE "comments" ("id" bigserial primary key, "body" character varying NOT NULL, "video_id" integer NOT NULL, "parent_comment_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "commenter_id" integer)[0m
+  ↳ db/schema.rb:18
+  [1m[35m (4.6ms)[0m  [1m[35mCREATE  INDEX  "index_comments_on_commenter_id" ON "comments"  ("commenter_id")[0m
+  ↳ db/schema.rb:18
+  [1m[35m (4.8ms)[0m  [1m[35mCREATE  INDEX  "index_comments_on_video_id" ON "comments"  ("video_id")[0m
+  ↳ db/schema.rb:18
+  [1m[35m (2.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "likes" CASCADE[0m
+  ↳ db/schema.rb:29
+  [1m[35m (5.6ms)[0m  [1m[35mCREATE TABLE "likes" ("id" bigserial primary key, "liker_id" integer NOT NULL, "video_id" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:29
+  [1m[35m (4.8ms)[0m  [1m[35mCREATE  INDEX  "index_likes_on_liker_id" ON "likes"  ("liker_id")[0m
+  ↳ db/schema.rb:29
+  [1m[35m (4.8ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_likes_on_video_id_and_liker_id" ON "likes"  ("video_id", "liker_id")[0m
+  ↳ db/schema.rb:29
+  [1m[35m (2.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  ↳ db/schema.rb:38
+  [1m[35m (9.6ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "username" character varying NOT NULL, "password" character varying NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:38
+  [1m[35m (2.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "videos" CASCADE[0m
+  ↳ db/schema.rb:45
+  [1m[35m (10.1ms)[0m  [1m[35mCREATE TABLE "videos" ("id" bigserial primary key, "title" character varying NOT NULL, "description" text NOT NULL, "uploader_id" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:45
+  [1m[35m (4.8ms)[0m  [1m[35mCREATE  INDEX  "index_videos_on_uploader_id" ON "videos"  ("uploader_id")[0m
+  ↳ db/schema.rb:45
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Update (0.3ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "development"], ["updated_at", "2021-10-03 18:27:42.136191"], ["key", "environment"]]
+  ↳ db/schema.rb:13
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Update (0.3ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "test"], ["updated_at", "2021-10-03 18:27:42.140996"], ["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mUser Destroy (0.4ms)[0m  [1m[31mDELETE FROM "users"[0m
+  ↳ db/seeds.rb:14
+  [1m[36mVideo Destroy (0.3ms)[0m  [1m[31mDELETE FROM "videos"[0m
+  ↳ db/seeds.rb:15
+  [1m[36mComment Destroy (0.3ms)[0m  [1m[31mDELETE FROM "comments"[0m
+  ↳ db/seeds.rb:16
+  [1m[36mLike Destroy (0.4ms)[0m  [1m[31mDELETE FROM "likes"[0m
+  ↳ db/seeds.rb:17
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("id", "username", "password", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["id", 18787], ["username", "cousin_gerald"], ["password", "hesadoctor"], ["created_at", "2021-10-03 18:27:43.733886"], ["updated_at", "2021-10-03 18:27:43.733886"]]
+  ↳ db/seeds.rb:19
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("id", "username", "password", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["id", 44234], ["username", "gillian"], ["password", "ballberie"], ["created_at", "2021-10-03 18:27:43.735044"], ["updated_at", "2021-10-03 18:27:43.735044"]]
+  ↳ db/seeds.rb:25
+  [1m[36mVideo Create (0.3ms)[0m  [1m[32mINSERT INTO "videos" ("id", "title", "description", "uploader_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["id", 75844], ["title", "The Less I Know the Better"], ["description", "Music by Australian band Tame Impala"], ["uploader_id", 18787], ["created_at", "2021-10-03 18:27:43.741090"], ["updated_at", "2021-10-03 18:27:43.741090"]]
+  ↳ db/seeds.rb:31
+  [1m[36mVideo Create (0.2ms)[0m  [1m[32mINSERT INTO "videos" ("id", "title", "description", "uploader_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["id", 97821], ["title", "Ball of Pizza"], ["description", "Eric brings pizza to the dojo"], ["uploader_id", 44234], ["created_at", "2021-10-03 18:27:43.742107"], ["updated_at", "2021-10-03 18:27:43.742107"]]
+  ↳ db/seeds.rb:38
+  [1m[36mComment Create (0.4ms)[0m  [1m[32mINSERT INTO "comments" ("id", "body", "video_id", "created_at", "updated_at", "commenter_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["id", 56585], ["body", "first"], ["video_id", 75844], ["created_at", "2021-10-03 18:27:43.748632"], ["updated_at", "2021-10-03 18:27:43.748632"], ["commenter_id", 44234]]
+  ↳ db/seeds.rb:45
+  [1m[36mComment Create (0.2ms)[0m  [1m[32mINSERT INTO "comments" ("id", "body", "video_id", "parent_comment_id", "created_at", "updated_at", "commenter_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["id", 84633], ["body", "second"], ["video_id", 75844], ["parent_comment_id", 56585], ["created_at", "2021-10-03 18:27:43.749764"], ["updated_at", "2021-10-03 18:27:43.749764"], ["commenter_id", 18787]]
+  ↳ db/seeds.rb:52
+  [1m[36mLike Create (0.4ms)[0m  [1m[32mINSERT INTO "likes" ("id", "liker_id", "video_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["id", 730], ["liker_id", 44234], ["video_id", 75844], ["created_at", "2021-10-03 18:27:43.755275"], ["updated_at", "2021-10-03 18:27:43.755275"]]
+  ↳ db/seeds.rb:60
+  [1m[36mLike Create (0.2ms)[0m  [1m[32mINSERT INTO "likes" ("id", "liker_id", "video_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["id", 41946], ["liker_id", 18787], ["video_id", 97821], ["created_at", "2021-10-03 18:27:43.756316"], ["updated_at", "2021-10-03 18:27:43.756316"]]
+  ↳ db/seeds.rb:61
+  [1m[35m (8.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
