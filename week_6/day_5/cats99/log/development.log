@@ -87,3 +87,69 @@ Migrating to CreateCats (20211008211712)
   ↳ bin/rails:9
   [1m[35m (4.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
   ↳ bin/rails:9
+  [1m[36mCat Destroy (8.6ms)[0m  [1m[31mDELETE FROM "cats"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCat Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "cats" WHERE "cats"."name" = $1 LIMIT $2[0m  [["name", "Garfield"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCat Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "cats" WHERE "cats"."name" = $1 LIMIT $2[0m  [["name", "Garfield"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCat Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "cats" WHERE "cats"."name" = $1 LIMIT $2[0m  [["name", "Garfield"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCat Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "cats" WHERE "cats"."name" = $1 LIMIT $2[0m  [["name", "F"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCat Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "cats" WHERE "cats"."name" = $1 LIMIT $2[0m  [["name", "Garfield"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCat Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "cats" WHERE "cats"."name" = $1 LIMIT $2[0m  [["name", "Garfield"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCat Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "cats" WHERE "cats"."name" = $1 LIMIT $2[0m  [["name", "Garfield"], ["LIMIT", 1]]
+  [1m[36mCat Create (1.0ms)[0m  [1m[32mINSERT INTO "cats" ("birth_date", "color", "name", "sex", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["birth_date", "1982-02-03"], ["color", "orange"], ["name", "Garfield"], ["sex", "M"], ["description", "Funny orange cat"], ["created_at", "2021-10-08 22:37:24.824415"], ["updated_at", "2021-10-08 22:37:24.824415"]]
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/" for ::1 at 2021-10-08 18:39:01 -0400
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/mark/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/mark/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-5.2.6/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/mark/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-5.2.6/lib/rails/templates/rails/welcome/index.html.erb (4.9ms)
+Completed 200 OK in 15ms (Views: 8.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/cats" for ::1 at 2021-10-08 18:39:35 -0400
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (0.9ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:3
+  Rendered cats/index.html.erb within layouts/application (24.9ms)
+Completed 500 Internal Server Error in 33ms (ActiveRecord: 8.3ms)
+
+
+  
+ActionView::Template::Error (Missing partial cats/_cat with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/home/mark/AppAcademy/aA-classwork/week_6/day_5/cats99/app/views"
+):
+    1: <h1> List of cats <h1>
+    2: <ul>
+    3:  <% @cats.each do |cat| %>
+    4:  <%= render cat %>
+    5:  <% end %>
+    6: <ul>
+  
+app/views/cats/index.html.erb:4:in `block in _app_views_cats_index_html_erb__1178995354290070707_47374408672260'
+app/views/cats/index.html.erb:3:in `_app_views_cats_index_html_erb__1178995354290070707_47374408672260'
+app/controllers/cats_controller.rb:5:in `index'
+Started PUT "/__web_console/repl_sessions/a521452068fc7cadf9f190634d28db2f" for ::1 at 2021-10-08 18:40:03 -0400
+Started PUT "/__web_console/repl_sessions/a521452068fc7cadf9f190634d28db2f" for ::1 at 2021-10-08 18:40:10 -0400
+Started PUT "/__web_console/repl_sessions/a521452068fc7cadf9f190634d28db2f" for ::1 at 2021-10-08 18:40:11 -0400
+Started PUT "/__web_console/repl_sessions/a521452068fc7cadf9f190634d28db2f" for ::1 at 2021-10-08 18:40:25 -0400
+Started PUT "/__web_console/repl_sessions/a521452068fc7cadf9f190634d28db2f" for ::1 at 2021-10-08 18:40:26 -0400
+Started PUT "/__web_console/repl_sessions/a521452068fc7cadf9f190634d28db2f" for ::1 at 2021-10-08 18:40:26 -0400
+Started PUT "/__web_console/repl_sessions/a521452068fc7cadf9f190634d28db2f" for ::1 at 2021-10-08 18:40:32 -0400
+Started PUT "/__web_console/repl_sessions/a521452068fc7cadf9f190634d28db2f" for ::1 at 2021-10-08 18:40:33 -0400
+Started PUT "/__web_console/repl_sessions/a521452068fc7cadf9f190634d28db2f" for ::1 at 2021-10-08 18:40:33 -0400
+  [1m[36mCat Load (0.3ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" ORDER BY "cats"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/views/cats/index.html.erb:4
