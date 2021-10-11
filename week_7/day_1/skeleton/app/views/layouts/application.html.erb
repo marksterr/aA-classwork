@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html>
   <head>
     <title>NinetyNineCats</title>
@@ -9,6 +10,11 @@
   </head>
 
   <body>
+    <% if current_user.nil? %>
+    <%= "Sign In" %>
+    <% else %>
+    <%= current_user.username %>
+    <% end %>
     <%= yield %>
   </body>
 </html>
