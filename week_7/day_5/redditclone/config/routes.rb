@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  get 'subs/index'
+  get 'subs/new'
+  get 'subs/show'
+  get 'subs/create'
+  get 'subs/destroy'
+  get 'subs/edit'
+  get 'subs/update'
   get 'sessions/new'
   get 'sessions/create'
   get 'sessions/destroy'
